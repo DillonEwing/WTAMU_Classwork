@@ -1,0 +1,23 @@
+@page
+@model ListUser
+@{
+    ViewData["Title"] = "List User";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<a asp-page="./CreateRole">Create Role</a>
+
+<table class="table table-sm table-bordered">
+    <tr><th>Name</th><th>Email</th><th>Edit</th></tr>
+    @foreach (var user in Model.userManager.Users)
+    {
+        <tr>
+            <td>@user.FirstName @user.LastName</td>
+            <td>@user.Email</td>
+            <td>
+                <a asp-page="./EditUser" asp-route-id="@user.Id">Edit</a>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,16 @@
+@page
+@model UpdateSudentNoteModel
+@{
+    ViewData["Title"] = "Student Note";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Update Note</h1>
+</div>
+<div>
+    <form method="post">
+        <textarea asp-for="StudentNote" id="StudentNote" name="StudentNote" rows="5" cols="100" placeholder="This is a place to put any notes you might have about sessions or workshops you have been to. "></textarea>
+        <br>
+        <button type="submit">Save Note</button>
+    </form>
+</div>

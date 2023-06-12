@@ -1,0 +1,21 @@
+@page
+@model StudentHomeModel
+@{
+    ViewData["Title"] = "Student Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome Students</h1>
+</div>
+
+<div>
+    <a asp-page="Register">Register</a>
+    <a asp-page="ListRegistrations">List Registrations</a>
+</div>
+<div>
+    <form method="post">
+        <h2>Student Note</h2>
+        <p asp-for="StudentNote" id="StudentNote" name="StudentNote">@Model.StudentNote</p>
+        <a href="/EditStudentNote">Edit Note</a>
+    </form>
+</div>

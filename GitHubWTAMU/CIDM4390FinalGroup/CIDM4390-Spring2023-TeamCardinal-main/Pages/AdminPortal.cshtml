@@ -1,0 +1,11 @@
+@page
+@model AdminPortalModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome Admin</h1>
+    <a  class="nav-link text-dark" asp-area="" asp-page="/ListUser">User List</a>
+    <a  class="nav-link text-dark" asp-area="" asp-page="/CreateRole">Create Role</a>
+</div>

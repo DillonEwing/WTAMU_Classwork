@@ -1,0 +1,63 @@
+@page
+@model CreateWorkshopModel
+@{
+    ViewData["Title"] = "Create Event";
+}
+
+<h1>Create Workshop</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <select asp-for="NewSpeaker.EventID" asp-items="@Model.EventList" class="form-select">
+                    <option disabled selected>Select Event</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewSpeaker.Topic" class="control-label"></label>
+                <input asp-for="NewSpeaker.Topic" class="form-control" />
+                <span asp-validation-for="NewSpeaker.Topic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewSpeaker.Description" class="control-label"></label>
+                <input asp-for="NewSpeaker.Description" class="form-control" />
+                <span asp-validation-for="NewSpeaker.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewSpeaker.Location" class="control-label"></label>
+                <input asp-for="NewSpeaker.Location" class="form-control" />
+                <span asp-validation-for="NewSpeaker.Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewSpeaker.SessionDate" class="control-label"></label>
+                <input asp-for="NewSpeaker.SessionDate" class="form-control" />
+                <span asp-validation-for="NewSpeaker.SessionDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewSpeaker.Capacity" class="control-label"></label>
+                <input asp-for="NewSpeaker.Capacity" class="form-control" />
+                <span asp-validation-for="NewSpeaker.Capacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewSpeaker.RequestedItems" class="control-label"></label>
+                <input asp-for="NewSpeaker.RequestedItems" class="form-control" />
+                <span asp-validation-for="NewSpeaker.RequestedItems" class="text-danger"></span>
+            </div>
+                <input asp-for="NewSpeaker.UserID" class="form-control" value="holder" hidden readonly/>
+                <input asp-for="NewSpeaker.Available" class="form-control" value="0" hidden readonly/>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

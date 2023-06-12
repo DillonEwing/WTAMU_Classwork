@@ -1,0 +1,33 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<a href="/Movies/create">Create New</a>
+
+<table class ="table">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Realse Date</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Price</th>
+            <th scope="col">Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model.Movies)
+            {
+                <tr>
+                    <th scope="row">@m.Title</th>
+                    <td>@m.ReleaseDate</td>
+                    <td>@m.Genre</td>
+                    <td>@m.Price</td>
+                    <td>@m.Rating</td>
+                </tr>
+            }
+    </tbody>
+</table>

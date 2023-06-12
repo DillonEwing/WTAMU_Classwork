@@ -1,0 +1,46 @@
+@page
+@model ContactModel
+
+<h1>Contact Us</h1>
+
+<div class="row">
+    <div class="col4">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="Name" class="conrol-label"></label>
+                <input asp-for="Name" class="form-control"/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="conrol-label"></label>
+                <input asp-for="Email" class="form-control"/>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Message" class="conrol-label"></label>
+                <br>
+                <textarea id ="Message" name="Message" rows="5" cols="40"></textarea>
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+    <div class="col-4">
+
+    </div>
+    <div class="col-4">
+
+    </div>
+</div>
+
+<div class="row">
+    @if(Model.posted == true) {
+        <p>Thank you for for your message @Model.Name (@Model.Email): @Model.Message</p>
+    }
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_validationScriptsPartial");}
+}

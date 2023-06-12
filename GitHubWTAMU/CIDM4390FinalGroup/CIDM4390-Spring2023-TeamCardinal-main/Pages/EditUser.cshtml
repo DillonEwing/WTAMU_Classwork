@@ -1,0 +1,28 @@
+@page
+@model EditUser
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <h2>Assign role for @if(@Model.UserSelected!=null){@Model.UserSelected.FirstName} @if(@Model.UserSelected!=null){@Model.UserSelected.LastName}</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating">
+                <select asp-for="@Model.RoleSelected" asp-items="@Model.RoleList" class="form-select">
+                    <option disabled selected>Select Role</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Set Role</button>
+            <input type="hidden" name="id" value="@if(@Model.UserSelected!=null){@Model.UserSelected.Id}"/>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

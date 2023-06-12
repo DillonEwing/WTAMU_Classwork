@@ -1,0 +1,59 @@
+@page
+@model EditSurvey
+@{
+    ViewData["Title"] = "Post Survey";
+}
+
+<h1>Post Survey</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <h5>Enter a number where 1 is "strongly disagree",3 is "Neither agree or disagree",and 5 is "Strongly agree"</h5>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PostSurvey.Informed" class="control-label"></label>
+                <input asp-for="PostSurvey.Informed" class="form-control" />
+                <span asp-validation-for="PostSurvey.Informed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostSurvey.Expectation" class="control-label"></label>
+                <input asp-for="PostSurvey.Expectation" class="form-control" />
+                <span asp-validation-for="PostSurvey.Expectation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostSurvey.Relevant" class="control-label"></label>
+                <input asp-for="PostSurvey.Relevant" class="form-control" />
+                <span asp-validation-for="PostSurvey.Relevant" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostSurvey.Clear" class="control-label"></label>
+                <input asp-for="PostSurvey.Clear" class="form-control" />
+                <span asp-validation-for="PostSurvey.Clear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostSurvey.Interest" class="control-label"></label>
+                <input asp-for="PostSurvey.Interest" class="form-control" />
+                <span asp-validation-for="PostSurvey.Interest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostSurvey.Feedback" class="control-label"></label>
+                <input asp-for="PostSurvey.Feedback" class="form-control" />
+                <span asp-validation-for="PostSurvey.Feedback" class="text-danger"></span>
+            </div>
+                <input asp-for="PostSurvey.RegistrationID" class="form-control" value="@Model.holder" hidden readonly/>
+            <div class="form-group">
+                <input type="submit" value="Submit Survey" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
